@@ -16,7 +16,7 @@ const getLanguageData = async () => {
       languages = country.languages;
       //here we can also loop over each country languages
       for (const lang in languages) {
-        totalLanguage.push(languages[lang]);
+        totalLanguage.push({ language: languages[lang] });
       }
     });
 
