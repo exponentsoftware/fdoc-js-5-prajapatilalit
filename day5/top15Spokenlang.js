@@ -10,14 +10,14 @@ const getLanguageData = async () => {
     const countryData = await res.json();
 
     let totalLanguage = [];
-    let countryLanguageName = "";
+
     //here we can do loop over trough entire countries api
     countryData.forEach((country) => {
-      countryLanguageName = country.languages;
+      languages = country.languages;
       //here we can also loop over each country languages
-      countryLanguageName.forEach((language) => {
-        totalLanguage.push({ language: language.name, country: country.name });
-      });
+      for (const lang in languages) {
+        totalLanguage.push(languages[lang]);
+      }
     });
 
     let output = Object.values(

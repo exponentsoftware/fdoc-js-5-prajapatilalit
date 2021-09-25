@@ -11,36 +11,26 @@ const getLanguageData = async () => {
     let totalLanguage = [];
 
     countryData.forEach((country) => {
-      let CountriesLanguage = [];
       let languages = country.languages;
-      CountriesLanguage.push(languages);
 
-      // CountriesLanguage.forEach((languageName) => {
-      //   totalLanguage.push(languageName);
-      // });
+      for (const language in languages) {
+        totalLanguage.push(languages[language]);
+      }
     });
 
-    // console.log(totalLanguage);
-    let output = totalLanguage.map(function (obj) {
-      return Object.keys(obj)
-        .sort()
-        .map(function (key) {
-          return obj[key];
-        });
-    });
-    console.log(output);
+    console.log(totalLanguage);
 
-    // const languageCount = totalLanguage.reduce((acc, curr) => {
-    //   if (acc.indexOf(curr) === -1) {
-    //     acc.push(curr);
-    //   }
-    //   return acc;
-    // }, []);
+    const languageCount = totalLanguage.reduce((acc, curr) => {
+      if (acc.indexOf(curr) === -1) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
 
-    // console.log(
-    //   "Total Language spoke by all countries is ",
-    //   languageCount.length
-    // );
+    console.log(
+      "Total Language spoke by all countries is ",
+      languageCount.length
+    );
   } catch (error) {
     console.log("error");
   }
